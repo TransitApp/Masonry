@@ -7,12 +7,13 @@
 //
 
 #import "MASUtilities.h"
+#import "MASAttribute.h"
 
 /**
  *  An immutable tuple which stores the view and the related NSLayoutAttribute.
  *  Describes part of either the left or right hand side of a constraint equation
  */
-@interface MASViewAttribute : NSObject
+@interface MASViewAttribute : NSObject <MASAttribute>
 
 /**
  *  The view which the reciever relates to. Can be nil if item is not a view.
@@ -25,7 +26,7 @@
 @property (nonatomic, weak, readonly) id item;
 
 /**
- *  The attribute which the reciever relates to
+ *  The attribute which the receiver relates to
  */
 @property (nonatomic, assign, readonly) NSLayoutAttribute layoutAttribute;
 

@@ -20,12 +20,12 @@
 /**
  *	First item/view and first attribute of the NSLayoutConstraint
  */
-@property (nonatomic, strong, readonly) MASViewAttribute *firstViewAttribute;
+@property (nonatomic, strong, readonly) NSObject<MASAttribute> *firstViewAttribute;
 
 /**
  *	Second item/view and second attribute of the NSLayoutConstraint
  */
-@property (nonatomic, strong, readonly) MASViewAttribute *secondViewAttribute;
+@property (nonatomic, strong, readonly) NSObject<MASAttribute> *secondViewAttribute;
 
 /**
  *	initialises the MASViewConstraint with the first part of the equation
@@ -34,7 +34,7 @@
  *
  *	@return	a new view constraint
  */
-- (id)initWithFirstViewAttribute:(MASViewAttribute *)firstViewAttribute;
+- (id)initWithFirstAttribute:(NSObject<MASAttribute> *)firstAttribute;
 
 /**
  *  Returns all MASViewConstraints installed with this view as a first item.
@@ -44,5 +44,14 @@
  *  @return An array of MASViewConstraints.
  */
 + (NSArray *)installedConstraintsForView:(MAS_VIEW *)view;
+
+/**
+ *  Returns all MASViewConstraints installed with this view as a first item.
+ *
+ *  @param  view  A view to retrieve constraints for.
+ *
+ *  @return An array of MASViewConstraints.
+ */
++ (NSArray *)installedConstraintsForLayoutGuide:(MAS_LAYOUT_GUIDE *)layoutGuide;
 
 @end

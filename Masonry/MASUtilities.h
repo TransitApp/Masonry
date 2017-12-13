@@ -14,6 +14,7 @@
 
     #import <UIKit/UIKit.h>
     #define MAS_VIEW UIView
+    #define MAS_LAYOUT_GUIDE UILayoutGuide
     #define MAS_VIEW_CONTROLLER UIViewController
     #define MASEdgeInsets UIEdgeInsets
 
@@ -28,6 +29,7 @@
 
     #import <AppKit/AppKit.h>
     #define MAS_VIEW NSView
+    #define MAS_LAYOUT_GUIDE NSLayoutGuide
     #define MASEdgeInsets NSEdgeInsets
 
     typedef NSLayoutPriority MASLayoutPriority;

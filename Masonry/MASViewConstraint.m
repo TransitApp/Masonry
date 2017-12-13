@@ -11,6 +11,7 @@
 #import "MASCompositeConstraint.h"
 #import "MASLayoutConstraint.h"
 #import "View+MASAdditions.h"
+#import "LayoutGuide+MASAdditions.h"
 #import <objc/runtime.h>
 
 @interface MAS_VIEW (MASConstraints)
@@ -34,10 +35,31 @@ static char kInstalledConstraintsKey;
 
 @end
 
+@interface MAS_LAYOUT_GUIDE (MASConstraints)
+
+@property (nonatomic, readonly) NSMutableSet *mas_installedConstraints;
+
+@end
+
+@implementation MAS_LAYOUT_GUIDE (MASConstraints)
+
+static char kInstalledConstraintsKey;
+
+- (NSMutableSet *)mas_installedConstraints {
+    NSMutableSet *constraints = objc_getAssociatedObject(self, &kInstalledConstraintsKey);
+    if (!constraints) {
+        constraints = [NSMutableSet set];
+        objc_setAssociatedObject(self, &kInstalledConstraintsKey, constraints, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return constraints;
+}
+
+@end
+
 
 @interface MASViewConstraint ()
 
-@property (nonatomic, strong, readwrite) MASViewAttribute *secondViewAttribute;
+@property (nonatomic, strong, readwrite) NSObject<MASAttribute> *secondViewAttribute;
 @property (nonatomic, weak) MAS_VIEW *installedView;
 @property (nonatomic, weak) MASLayoutConstraint *layoutConstraint;
 @property (nonatomic, assign) NSLayoutRelation layoutRelation;
@@ -52,11 +74,11 @@ static char kInstalledConstraintsKey;
 
 @implementation MASViewConstraint
 
-- (id)initWithFirstViewAttribute:(MASViewAttribute *)firstViewAttribute {
+- (id)initWithFirstAttribute:(NSObject<MASAttribute> *)firstAttribute {
     self = [super init];
     if (!self) return nil;
     
-    _firstViewAttribute = firstViewAttribute;
+    _firstViewAttribute = firstAttribute;
     self.layoutPriority = MASLayoutPriorityRequired;
     self.layoutMultiplier = 1;
     
@@ -66,7 +88,7 @@ static char kInstalledConstraintsKey;
 #pragma mark - NSCoping
 
 - (id)copyWithZone:(NSZone __unused *)zone {
-    MASViewConstraint *constraint = [[MASViewConstraint alloc] initWithFirstViewAttribute:self.firstViewAttribute];
+    MASViewConstraint *constraint = [[MASViewConstraint alloc] initWithFirstAttribute:self.firstViewAttribute];
     constraint.layoutConstant = self.layoutConstant;
     constraint.layoutRelation = self.layoutRelation;
     constraint.layoutPriority = self.layoutPriority;
@@ -79,6 +101,10 @@ static char kInstalledConstraintsKey;
 
 + (NSArray *)installedConstraintsForView:(MAS_VIEW *)view {
     return [view.mas_installedConstraints allObjects];
+}
+
++ (NSArray *)installedConstraintsForLayoutGuide:(UILayoutGuide *)layoutGuide {
+    return [layoutGuide.mas_installedConstraints allObjects];
 }
 
 #pragma mark - Private
@@ -128,6 +154,15 @@ static char kInstalledConstraintsKey;
         MASViewAttribute *attr = secondViewAttribute;
         if (attr.layoutAttribute == NSLayoutAttributeNotAnAttribute) {
             _secondViewAttribute = [[MASViewAttribute alloc] initWithView:attr.view item:attr.item layoutAttribute:self.firstViewAttribute.layoutAttribute];;
+        } else {
+            _secondViewAttribute = secondViewAttribute;
+        }
+    } else if ([secondViewAttribute isKindOfClass:MAS_LAYOUT_GUIDE.class]) {
+        _secondViewAttribute = [[MASLayoutGuideAttribute alloc] initWithLayoutGuide:secondViewAttribute layoutAttribute:self.firstViewAttribute.layoutAttribute];
+    } else if ([secondViewAttribute isKindOfClass:MASLayoutGuideAttribute.class]) {
+        MASLayoutGuideAttribute *attr = secondViewAttribute;
+        if (attr.layoutAttribute == NSLayoutAttributeNotAnAttribute) {
+            _secondViewAttribute = [[MASLayoutGuideAttribute alloc] initWithLayoutGuide:attr.layoutGuide item:attr.item layoutAttribute:self.firstViewAttribute.layoutAttribute];;
         } else {
             _secondViewAttribute = secondViewAttribute;
         }
@@ -312,7 +347,12 @@ static char kInstalledConstraintsKey;
     
     if ([self supportsActiveProperty] && self.layoutConstraint) {
         self.layoutConstraint.active = YES;
-        [self.firstViewAttribute.view.mas_installedConstraints addObject:self];
+        if (self.firstViewAttribute.view) {
+            [self.firstViewAttribute.view.mas_installedConstraints addObject:self];
+        }
+        else {
+            [self.firstViewAttribute.layoutGuide.mas_installedConstraints addObject:self];
+        }
         return;
     }
     
@@ -325,7 +365,11 @@ static char kInstalledConstraintsKey;
     // therefore we assume that is refering to superview
     // eg make.left.equalTo(@10)
     if (!self.firstViewAttribute.isSizeAttribute && !self.secondViewAttribute) {
-        secondLayoutItem = self.firstViewAttribute.view.superview;
+        if (self.firstViewAttribute.view) {
+            secondLayoutItem = self.firstViewAttribute.view.superview;
+        } else {
+            secondLayoutItem = self.firstViewAttribute.layoutGuide.owningView;
+        }
         secondLayoutAttribute = firstLayoutAttribute;
     }
     

@@ -43,4 +43,6 @@
     return MAS_NSUINTROTATE([self.view hash], MAS_NSUINT_BIT / 2) ^ self.layoutAttribute;
 }
 
+@synthesize layoutGuide;
+
 @end

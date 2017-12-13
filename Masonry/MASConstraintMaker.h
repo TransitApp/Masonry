@@ -118,13 +118,22 @@ typedef NS_OPTIONS(NSInteger, MASAttribute) {
 @property (nonatomic, assign) BOOL removeExisting;
 
 /**
- *	initialises the maker with a default view
+ *    initialises the maker with a default view
  *
- *	@param	view	any MASConstraint are created with this view as the first item
+ *    @param    view    any MASConstraint are created with this view as the first item
  *
- *	@return	a new MASConstraintMaker
+ *    @return    a new MASConstraintMaker
  */
 - (id)initWithView:(MAS_VIEW *)view;
+
+/**
+ *    initialises the maker with a default layout guide
+ *
+ *    @param    layoutGuide    any MASConstraint are created with this layout guide as the first item
+ *
+ *    @return    a new MASConstraintMaker
+ */
+- (id)initWithLayoutGuide:(MAS_LAYOUT_GUIDE *)layoutGuide;
 
 /**
  *	Calls install method on any MASConstraints which have been created by this maker

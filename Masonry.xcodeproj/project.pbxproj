@@ -57,6 +57,16 @@
 		4473548E1B39F772004DACCB /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4473548C1B39F772004DACCB /* ViewController+MASAdditions.m */; };
 		447354921B3A18B3004DACCB /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4473548C1B39F772004DACCB /* ViewController+MASAdditions.m */; };
 		447354931B3A18B9004DACCB /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4473548B1B39F772004DACCB /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC9C1B2C1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9C1B2A1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC9C1B2D1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9C1B2B1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.m */; };
+		DC9C1B301FDF10BA009C5477 /* MASLayoutGuideAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9C1B2E1FDF10BA009C5477 /* MASLayoutGuideAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC9C1B311FDF10BA009C5477 /* MASLayoutGuideAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9C1B2E1FDF10BA009C5477 /* MASLayoutGuideAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC9C1B321FDF10BA009C5477 /* MASLayoutGuideAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9C1B2F1FDF10BA009C5477 /* MASLayoutGuideAttribute.m */; };
+		DC9C1B331FDF10BA009C5477 /* MASLayoutGuideAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9C1B2F1FDF10BA009C5477 /* MASLayoutGuideAttribute.m */; };
+		DC9C1B351FDF10EF009C5477 /* MASAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9C1B341FDF10EF009C5477 /* MASAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC9C1B361FDF10EF009C5477 /* MASAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9C1B341FDF10EF009C5477 /* MASAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCD680091FE1964000EE298A /* LayoutGuide+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9C1B2A1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCD6800A1FE1965A00EE298A /* LayoutGuide+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9C1B2B1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +98,11 @@
 		3AED06271AD5A1400053CC65 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4473548B1B39F772004DACCB /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		4473548C1B39F772004DACCB /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		DC9C1B2A1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LayoutGuide+MASAdditions.h"; sourceTree = "<group>"; };
+		DC9C1B2B1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LayoutGuide+MASAdditions.m"; sourceTree = "<group>"; };
+		DC9C1B2E1FDF10BA009C5477 /* MASLayoutGuideAttribute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASLayoutGuideAttribute.h; sourceTree = "<group>"; };
+		DC9C1B2F1FDF10BA009C5477 /* MASLayoutGuideAttribute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASLayoutGuideAttribute.m; sourceTree = "<group>"; };
+		DC9C1B341FDF10EF009C5477 /* MASAttribute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASAttribute.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +147,8 @@
 				3AED05E51AD5A0470053CC65 /* MASUtilities.h */,
 				3AED05EF1AD5A0470053CC65 /* View+MASAdditions.h */,
 				3AED05F01AD5A0470053CC65 /* View+MASAdditions.m */,
+				DC9C1B2A1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.h */,
+				DC9C1B2B1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.m */,
 				3AED05F11AD5A0470053CC65 /* View+MASShorthandAdditions.h */,
 				4473548B1B39F772004DACCB /* ViewController+MASAdditions.h */,
 				4473548C1B39F772004DACCB /* ViewController+MASAdditions.m */,
@@ -143,8 +160,11 @@
 				3AED05DF1AD5A0470053CC65 /* MASConstraint.m */,
 				3AED05DC1AD5A0470053CC65 /* MASCompositeConstraint.h */,
 				3AED05DD1AD5A0470053CC65 /* MASCompositeConstraint.m */,
+				DC9C1B341FDF10EF009C5477 /* MASAttribute.h */,
 				3AED05E61AD5A0470053CC65 /* MASViewAttribute.h */,
 				3AED05E71AD5A0470053CC65 /* MASViewAttribute.m */,
+				DC9C1B2E1FDF10BA009C5477 /* MASLayoutGuideAttribute.h */,
+				DC9C1B2F1FDF10BA009C5477 /* MASLayoutGuideAttribute.m */,
 				3AED05E81AD5A0470053CC65 /* MASViewConstraint.h */,
 				3AED05E91AD5A0470053CC65 /* MASViewConstraint.m */,
 				3AED05E11AD5A0470053CC65 /* MASConstraintMaker.h */,
@@ -178,12 +198,15 @@
 				4473548D1B39F772004DACCB /* ViewController+MASAdditions.h in Headers */,
 				3AED05FC1AD5A0470053CC65 /* MASViewAttribute.h in Headers */,
 				3AED05BD1AD59FD40053CC65 /* Masonry.h in Headers */,
+				DC9C1B301FDF10BA009C5477 /* MASLayoutGuideAttribute.h in Headers */,
 				3AED05F91AD5A0470053CC65 /* MASLayoutConstraint.h in Headers */,
+				DC9C1B351FDF10EF009C5477 /* MASAttribute.h in Headers */,
 				3AED05FE1AD5A0470053CC65 /* MASViewConstraint.h in Headers */,
 				3AED06021AD5A0470053CC65 /* NSArray+MASShorthandAdditions.h in Headers */,
 				3AED05F71AD5A0470053CC65 /* MASConstraintMaker.h in Headers */,
 				3AED05FB1AD5A0470053CC65 /* MASUtilities.h in Headers */,
 				3AED06001AD5A0470053CC65 /* NSArray+MASAdditions.h in Headers */,
+				DC9C1B2C1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.h in Headers */,
 				3AED05F21AD5A0470053CC65 /* MASCompositeConstraint.h in Headers */,
 				3AED05F61AD5A0470053CC65 /* MASConstraint+Private.h in Headers */,
 				3AED05F41AD5A0470053CC65 /* MASConstraint.h in Headers */,
@@ -204,10 +227,13 @@
 				3AED061B1AD5A1400053CC65 /* NSArray+MASShorthandAdditions.h in Headers */,
 				3AED061C1AD5A1400053CC65 /* MASConstraintMaker.h in Headers */,
 				3AED061E1AD5A1400053CC65 /* MASUtilities.h in Headers */,
+				DCD680091FE1964000EE298A /* LayoutGuide+MASAdditions.h in Headers */,
 				3AED061F1AD5A1400053CC65 /* NSArray+MASAdditions.h in Headers */,
 				3AED06201AD5A1400053CC65 /* MASCompositeConstraint.h in Headers */,
 				447354931B3A18B9004DACCB /* ViewController+MASAdditions.h in Headers */,
+				DC9C1B311FDF10BA009C5477 /* MASLayoutGuideAttribute.h in Headers */,
 				3AED06221AD5A1400053CC65 /* MASConstraint.h in Headers */,
+				DC9C1B361FDF10EF009C5477 /* MASAttribute.h in Headers */,
 				3AED061D1AD5A1400053CC65 /* MASConstraint+Private.h in Headers */,
 				3AED06211AD5A1400053CC65 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */,
 			);
@@ -315,7 +341,9 @@
 				3AED05F31AD5A0470053CC65 /* MASCompositeConstraint.m in Sources */,
 				3AED05F81AD5A0470053CC65 /* MASConstraintMaker.m in Sources */,
 				3AED06041AD5A0470053CC65 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				DC9C1B321FDF10BA009C5477 /* MASLayoutGuideAttribute.m in Sources */,
 				3AED06061AD5A0470053CC65 /* View+MASAdditions.m in Sources */,
+				DC9C1B2D1FDF0F3D009C5477 /* LayoutGuide+MASAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +355,9 @@
 				3AED060B1AD5A1400053CC65 /* MASViewAttribute.m in Sources */,
 				3AED060C1AD5A1400053CC65 /* MASLayoutConstraint.m in Sources */,
 				3AED060D1AD5A1400053CC65 /* MASConstraint.m in Sources */,
+				DCD6800A1FE1965A00EE298A /* LayoutGuide+MASAdditions.m in Sources */,
 				3AED060E1AD5A1400053CC65 /* MASViewConstraint.m in Sources */,
+				DC9C1B331FDF10BA009C5477 /* MASLayoutGuideAttribute.m in Sources */,
 				3AED060F1AD5A1400053CC65 /* MASCompositeConstraint.m in Sources */,
 				447354921B3A18B3004DACCB /* ViewController+MASAdditions.m in Sources */,
 				3AED06101AD5A1400053CC65 /* MASConstraintMaker.m in Sources */,
