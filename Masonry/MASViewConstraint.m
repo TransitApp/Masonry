@@ -386,15 +386,19 @@ static char kInstalledConstraintsKey;
     layoutConstraint.mas_key = self.mas_key;
     
     if (self.secondViewAttribute.view) {
-        MAS_VIEW *closestCommonSuperview = [self.firstViewAttribute.view mas_closestCommonSuperview:self.secondViewAttribute.view];
+        MAS_VIEW *closestCommonSuperview = [self.firstViewAttribute.item mas_closestCommonSuperview:self.secondViewAttribute.view];
         NSAssert(closestCommonSuperview,
                  @"couldn't find a common superview for %@ and %@",
-                 self.firstViewAttribute.view, self.secondViewAttribute.view);
+                 self.firstViewAttribute.item, self.secondViewAttribute.item);
         self.installedView = closestCommonSuperview;
     } else if (self.firstViewAttribute.isSizeAttribute) {
-        self.installedView = self.firstViewAttribute.view;
+        self.installedView = self.firstViewAttribute.item;
     } else {
-        self.installedView = self.firstViewAttribute.view.superview;
+        if (self.firstViewAttribute.view) {
+            self.installedView = self.firstViewAttribute.view.superview;
+        } else {
+            self.installedView = self.firstViewAttribute.layoutGuide.owningView;
+        }
     }
 
 
@@ -407,7 +411,12 @@ static char kInstalledConstraintsKey;
         existingConstraint.constant = layoutConstraint.constant;
         self.layoutConstraint = existingConstraint;
     } else {
-        [self.installedView addConstraint:layoutConstraint];
+        if ([self.installedView isKindOfClass:UILayoutGuide.class]) {
+            [((UILayoutGuide *)self.installedView).owningView addConstraint:layoutConstraint];
+        } else {
+            [self.installedView addConstraint:layoutConstraint];
+        }
+        
         self.layoutConstraint = layoutConstraint;
         [firstLayoutItem.mas_installedConstraints addObject:self];
     }
