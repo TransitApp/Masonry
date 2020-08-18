@@ -411,11 +411,7 @@ static char kInstalledConstraintsKey;
         existingConstraint.constant = layoutConstraint.constant;
         self.layoutConstraint = existingConstraint;
     } else {
-        if ([self.installedView isKindOfClass:UILayoutGuide.class]) {
-            [((UILayoutGuide *)self.installedView).owningView addConstraint:layoutConstraint];
-        } else {
-            [self.installedView addConstraint:layoutConstraint];
-        }
+        layoutConstraint.active = YES;
         
         self.layoutConstraint = layoutConstraint;
         [firstLayoutItem.mas_installedConstraints addObject:self];
@@ -449,7 +445,7 @@ static char kInstalledConstraintsKey;
         return;
     }
     
-    [self.installedView removeConstraint:self.layoutConstraint];
+    self.layoutConstraint.active = NO;
     self.layoutConstraint = nil;
     self.installedView = nil;
     
