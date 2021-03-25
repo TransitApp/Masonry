@@ -42,7 +42,6 @@
             @(NSLayoutAttributeHeight)   : @"height",
             @(NSLayoutAttributeCenterX)  : @"centerX",
             @(NSLayoutAttributeCenterY)  : @"centerY",
-            @(NSLayoutAttributeBaseline) : @"baseline",
             @(NSLayoutAttributeFirstBaseline) : @"firstBaseline",
             @(NSLayoutAttributeLastBaseline) : @"lastBaseline",
 
